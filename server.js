@@ -9,7 +9,7 @@ connections = [];
 server.listen(process.env.PORT || 3000);
 console.log('server running');
 
-const APP_TOKEN = 'EAAZA80VIZAZAZB0BAHPCZBvepZBLJZBZAXkCypZBHoDJdYIL3NTxRzN2kXTZACAF8owD36iySZCvSpDZAyb5ZC2fZCrFCuWj6XF0XKRb23jzImOVyQpZABHjUpnxHv2RXlyMBBOEtxnZC9SebY9pN9SVsocjgANMOIJHYg7zLkRMsxDzYq7vAQZDZD';
+const APP_TOKEN = 'INSERT_TOKEN';
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -49,7 +49,7 @@ app.post('/webhook',function(req, res){
 					if(senderID != 1839949259554162){
 						
 						getMusicFromPHP(messageText);
-						//io.sockets.emit('new message', {msg:messageText});
+						
 
 					}
 					
@@ -72,9 +72,7 @@ app.post('/webhook',function(req, res){
 							console.log('Message sent')
 						})
 
-					
-								
-					
+						
 
 				}
 			})
@@ -86,7 +84,7 @@ app.post('/webhook',function(req, res){
 
 function getMusicFromPHP(input){
 	request.post(
-    'https://edwin-bot.herokuapp.com/index.php',
+    'INSERT_URL_TO_INDEX.PHP',
     { json: { key: input } },
     function (error, response, body) {
         if (!error) {
