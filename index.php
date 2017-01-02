@@ -4,7 +4,6 @@ require('simple_html_dom.php');
 
 if (file_get_contents('php://input') != null) {
        
-
 $input = str_replace(' ','+',json_decode(file_get_contents('php://input'))->key);
 
 $myUrl = "https://www.youtube.com/results?search_query=" . $input;
@@ -17,22 +16,14 @@ foreach ($html->find('div.yt-lockup-content') as $video) {
         $views = $video->find('ul.yt-lockup-meta-info li', 1);
 		
 		if($duration != null && $views != null){
-			//$views = preg_replace("/[^0-9]/","",$views);
-			//$videos[] = array("url"=>$url, "views"=>$views);
-			break;
-				
+			break;			
 		}
-			
-						
+									
 }
-
 
    echo str_replace('watch?v=','',$url);
 
 	
 }
 	
-
-
-
 ?>
